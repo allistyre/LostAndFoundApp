@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         // Button Declarations
         Button createAdvert = findViewById(R.id.btnCreateAdvert);
         Button showItems = findViewById(R.id.btnShowItems);
+        Button showMap = findViewById(R.id.btnShowMap);
 
         // Setting onClick listeners
         createAdvert.setOnClickListener(v -> {
@@ -30,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         showItems.setOnClickListener(v -> {
             Intent intent = new Intent(this, ShowItems.class);
+            startActivity(intent);
+        });
+
+        showMap.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MapsActivity.class);
             startActivity(intent);
         });
     }

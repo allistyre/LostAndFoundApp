@@ -124,6 +124,8 @@
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/edit_text_border"
+            android:focusable="false"
+            android:clickable="true"
             android:id="@+id/etLocation" />
         <TextView
             android:layout_width="wrap_content"
@@ -141,6 +143,13 @@
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:scaleType="centerCrop" />
+        <Button
+            android:id="@+id/btnGetLocation"
+            android:layout_width="350dp"
+            android:text="GET CURRENT LOCATION"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/btnUploadImage"
             android:layout_width="350dp"

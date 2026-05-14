@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 public class DatabaseHelper extends SQLiteOpenHelper {
     // Constants
     public static final String DATABASE_NAME = "LostAndFoundDatabase.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String TABLE_NAME = "Items";
     public static final String ID = "id";
     public static final String POST_TYPE = "post_type";
@@ -24,6 +24,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String CATEGORY = "category";
     public static final String IMAGE = "image";
     public static final String TIMESTAMP = "timestamp";
+    public static final String LATITUDE = "latitude";
+    public static final String LONGITUDE = "longitude";
 
     public DatabaseHelper(Context context)
     {
@@ -43,7 +45,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 DATE + " TEXT NOT NULL, " +
                 CATEGORY + " TEXT NOT NULL, " +
                 IMAGE + " TEXT NOT NULL, " +
-                TIMESTAMP + " TEXT NOT NULL " +
+                TIMESTAMP + " TEXT NOT NULL, " +
+                LATITUDE + " REAL NOT NULL, " +
+                LONGITUDE + " REAL NOT NULL " +
                 ")";
         db.execSQL(createTable);
 
@@ -60,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public long insertItem(String postType, String name, String phone,
                            String description, String location, String date, String category,
-                           String image)
+                           String image, String latitude, String longitude)
     {
         SQLiteDatabase database = this.getWritableDatabase();
 
@@ -79,6 +83,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(CATEGORY, category);
         values.put(IMAGE, image);
         values.put(TIMESTAMP, formatDateTime);
+        values.put(LATITUDE, latitude);
+        values.put(LONGITUDE, longitude);
 
         return database.insert(TABLE_NAME, null, values);
     }
