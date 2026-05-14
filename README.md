@@ -6,3 +6,4 @@
 - Viewing lost and found items
 - Removing an advert once it's been found
 - Uploading images
+- Location features
